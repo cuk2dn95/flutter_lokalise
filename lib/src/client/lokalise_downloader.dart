@@ -38,7 +38,7 @@ class LokaliseDownloader {
         .forEach((it) {
       final data = it.content as List<int>;
       final jsonString = Utf8Decoder().convert(data);
-      final locale = path.basenameWithoutExtension(it.name);
+      final locale = path.basename(it.name);
       files.putIfAbsent(locale, () => jsonString);
     });
     return files;
