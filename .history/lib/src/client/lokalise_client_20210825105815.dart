@@ -31,7 +31,7 @@ class LokaliseClient {
       format: "json",
       includeTags: includeTags,
     );
-    final productPath = branch != null ? '$projectId:$branch' : projectId;
+    const productPath = branch != null ? '$projectId:$branch' : ;
     final response = await _client.post(
         Uri.parse("$_baseUrl/projects/$productPath/files/download"),
         headers: {

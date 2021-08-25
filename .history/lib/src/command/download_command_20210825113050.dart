@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:archive/archive.dart';
 import 'package:args/args.dart';
+
 import 'package:flutter_lokalise/src/client/downloader.dart';
 import 'package:flutter_lokalise/src/client/lokalise_client.dart';
 import 'package:logging/logging.dart';
@@ -49,7 +50,7 @@ class DownloadCommand extends FlutterLokaliseCommand<Null> {
 
     final bundleData = await _downloader.download(bundleUrl);
     final archive = ZipDecoder().decodeBytes(bundleData);
-    _convertArchiveToArbFiles(archive, downloadArgResults.output!);
+
   }
 
   Future<String> _fetchBundleUrl({
@@ -68,25 +69,6 @@ class DownloadCommand extends FlutterLokaliseCommand<Null> {
     return response.typedBody.bundleUrl;
   }
 
-  void _convertArchiveToArbFiles(Archive archive, String output) {
-    // final converter = JsonToArbConverter();
-    // archive
-    //     .where((it) => it.isFile && path.extension(it.name) == ".json")
-    //     .forEach((it) {
-    //   final data = it.content as List<int>;
-    //   final jsonString = Utf8Decoder().convert(data);
-    //   final json = jsonDecode(jsonString) as Map<String, dynamic>;
-    //   final locale = path.basenameWithoutExtension(it.name);
-    //   final arbMap = converter.toArb(
-    //     json: json,
-    //     locale: locale,
-    //   );
-    //   File("$output/intl_$locale.arb")
-    //     ..createSync(recursive: true)
-    //     ..writeAsStringSync(
-    //         _unescape(JsonEncoder.withIndent("  ").convert(arbMap)));
-    // });
-  }
 
   String _unescape(String input) {
     return input.replaceAll(r'\\n', r'\n');

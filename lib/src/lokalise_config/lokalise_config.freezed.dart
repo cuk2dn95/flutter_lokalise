@@ -20,12 +20,14 @@ class _$LokaliseConfigTearOff {
       {String? projectId,
       String? apiToken,
       Iterable<String>? includeTags,
-      String? output}) {
+      String? output,
+      String? branch}) {
     return _LokaliseConfig(
       projectId: projectId,
       apiToken: apiToken,
       includeTags: includeTags,
       output: output,
+      branch: branch,
     );
   }
 }
@@ -39,6 +41,7 @@ mixin _$LokaliseConfig {
   String? get apiToken => throw _privateConstructorUsedError;
   Iterable<String>? get includeTags => throw _privateConstructorUsedError;
   String? get output => throw _privateConstructorUsedError;
+  String? get branch => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LokaliseConfigCopyWith<LokaliseConfig> get copyWith =>
@@ -54,7 +57,8 @@ abstract class $LokaliseConfigCopyWith<$Res> {
       {String? projectId,
       String? apiToken,
       Iterable<String>? includeTags,
-      String? output});
+      String? output,
+      String? branch});
 }
 
 /// @nodoc
@@ -72,6 +76,7 @@ class _$LokaliseConfigCopyWithImpl<$Res>
     Object? apiToken = freezed,
     Object? includeTags = freezed,
     Object? output = freezed,
+    Object? branch = freezed,
   }) {
     return _then(_value.copyWith(
       projectId: projectId == freezed
@@ -90,6 +95,10 @@ class _$LokaliseConfigCopyWithImpl<$Res>
           ? _value.output
           : output // ignore: cast_nullable_to_non_nullable
               as String?,
+      branch: branch == freezed
+          ? _value.branch
+          : branch // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -105,7 +114,8 @@ abstract class _$LokaliseConfigCopyWith<$Res>
       {String? projectId,
       String? apiToken,
       Iterable<String>? includeTags,
-      String? output});
+      String? output,
+      String? branch});
 }
 
 /// @nodoc
@@ -125,6 +135,7 @@ class __$LokaliseConfigCopyWithImpl<$Res>
     Object? apiToken = freezed,
     Object? includeTags = freezed,
     Object? output = freezed,
+    Object? branch = freezed,
   }) {
     return _then(_LokaliseConfig(
       projectId: projectId == freezed
@@ -143,6 +154,10 @@ class __$LokaliseConfigCopyWithImpl<$Res>
           ? _value.output
           : output // ignore: cast_nullable_to_non_nullable
               as String?,
+      branch: branch == freezed
+          ? _value.branch
+          : branch // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -151,7 +166,11 @@ class __$LokaliseConfigCopyWithImpl<$Res>
 
 class _$_LokaliseConfig implements _LokaliseConfig {
   const _$_LokaliseConfig(
-      {this.projectId, this.apiToken, this.includeTags, this.output});
+      {this.projectId,
+      this.apiToken,
+      this.includeTags,
+      this.output,
+      this.branch});
 
   @override
   final String? projectId;
@@ -161,10 +180,12 @@ class _$_LokaliseConfig implements _LokaliseConfig {
   final Iterable<String>? includeTags;
   @override
   final String? output;
+  @override
+  final String? branch;
 
   @override
   String toString() {
-    return 'LokaliseConfig(projectId: $projectId, apiToken: $apiToken, includeTags: $includeTags, output: $output)';
+    return 'LokaliseConfig(projectId: $projectId, apiToken: $apiToken, includeTags: $includeTags, output: $output, branch: $branch)';
   }
 
   @override
@@ -181,7 +202,9 @@ class _$_LokaliseConfig implements _LokaliseConfig {
                 const DeepCollectionEquality()
                     .equals(other.includeTags, includeTags)) &&
             (identical(other.output, output) ||
-                const DeepCollectionEquality().equals(other.output, output)));
+                const DeepCollectionEquality().equals(other.output, output)) &&
+            (identical(other.branch, branch) ||
+                const DeepCollectionEquality().equals(other.branch, branch)));
   }
 
   @override
@@ -190,7 +213,8 @@ class _$_LokaliseConfig implements _LokaliseConfig {
       const DeepCollectionEquality().hash(projectId) ^
       const DeepCollectionEquality().hash(apiToken) ^
       const DeepCollectionEquality().hash(includeTags) ^
-      const DeepCollectionEquality().hash(output);
+      const DeepCollectionEquality().hash(output) ^
+      const DeepCollectionEquality().hash(branch);
 
   @JsonKey(ignore: true)
   @override
@@ -203,7 +227,8 @@ abstract class _LokaliseConfig implements LokaliseConfig {
       {String? projectId,
       String? apiToken,
       Iterable<String>? includeTags,
-      String? output}) = _$_LokaliseConfig;
+      String? output,
+      String? branch}) = _$_LokaliseConfig;
 
   @override
   String? get projectId => throw _privateConstructorUsedError;
@@ -213,6 +238,8 @@ abstract class _LokaliseConfig implements LokaliseConfig {
   Iterable<String>? get includeTags => throw _privateConstructorUsedError;
   @override
   String? get output => throw _privateConstructorUsedError;
+  @override
+  String? get branch => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$LokaliseConfigCopyWith<_LokaliseConfig> get copyWith =>

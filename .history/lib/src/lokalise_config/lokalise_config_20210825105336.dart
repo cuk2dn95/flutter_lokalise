@@ -5,12 +5,13 @@ part 'lokalise_config.freezed.dart';
 
 @freezed
 class LokaliseConfig with _$LokaliseConfig {
-  const factory LokaliseConfig(
-      {String? projectId,
-      String? apiToken,
-      Iterable<String>? includeTags,
-      String? output,
-      String? branch}) = _LokaliseConfig;
+  const factory LokaliseConfig({
+    String? projectId,
+    String? apiToken,
+    Iterable<String>? includeTags,
+    String? output,
+    String? branch
+  }) = _LokaliseConfig;
 
   factory LokaliseConfig.fromPubspecYamlString(String yamlString) {
     final yaml = loadYamlNode(yamlString);
@@ -22,7 +23,7 @@ class LokaliseConfig with _$LokaliseConfig {
           ?.getOrNull<YamlList>("include_tags")
           ?.cast()
           .map((it) => it.toString()),
-      branch: flutterLokalise?.getAsStringOrNull("branch"),
+          branch: flutterLokalise?.getAsStringOrNull("output"),
       output: flutterLokalise?.getAsStringOrNull("output"),
     );
   }

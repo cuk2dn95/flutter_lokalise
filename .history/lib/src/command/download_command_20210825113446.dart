@@ -69,23 +69,23 @@ class DownloadCommand extends FlutterLokaliseCommand<Null> {
   }
 
   void _convertArchiveToArbFiles(Archive archive, String output) {
-    // final converter = JsonToArbConverter();
-    // archive
-    //     .where((it) => it.isFile && path.extension(it.name) == ".json")
-    //     .forEach((it) {
-    //   final data = it.content as List<int>;
-    //   final jsonString = Utf8Decoder().convert(data);
-    //   final json = jsonDecode(jsonString) as Map<String, dynamic>;
-    //   final locale = path.basenameWithoutExtension(it.name);
-    //   final arbMap = converter.toArb(
-    //     json: json,
-    //     locale: locale,
-    //   );
-    //   File("$output/intl_$locale.arb")
-    //     ..createSync(recursive: true)
-    //     ..writeAsStringSync(
-    //         _unescape(JsonEncoder.withIndent("  ").convert(arbMap)));
-    // });
+    final converter = JsonToArbConverter();
+    archive
+        .where((it) => it.isFile && path.extension(it.name) == ".json")
+        .forEach((it) {
+      final data = it.content as List<int>;
+      final jsonString = Utf8Decoder().convert(data);
+      final json = jsonDecode(jsonString) as Map<String, dynamic>;
+      final locale = path.basenameWithoutExtension(it.name);
+      final arbMap = converter.toArb(
+        json: json,
+        locale: locale,
+      );
+      File("$output/intl_$locale.arb")
+        ..createSync(recursive: true)
+        ..writeAsStringSync(
+            _unescape(JsonEncoder.withIndent("  ").convert(arbMap)));
+    });
   }
 
   String _unescape(String input) {
