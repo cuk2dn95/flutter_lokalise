@@ -17,3 +17,5 @@ coverage/
 coverage_badge.svg
 
 example/*.lock
+
+.history
