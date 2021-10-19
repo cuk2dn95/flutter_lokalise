@@ -30,6 +30,7 @@ class LokaliseClient {
     final requestBody = FilesDownloadRequestBody(
       format: "json",
       includeTags: includeTags,
+      replaceBreaks: false,
     );
     final productPath = branch != null ? '$projectId:$branch' : projectId;
     final response = await _client.post(

@@ -12,6 +12,7 @@ _$_FilesDownloadRequestBody _$_$_FilesDownloadRequestBodyFromJson(
     format: json['format'] as String,
     originalFilenames: json['original_filenames'] as bool?,
     allPlatforms: json['all_platforms'] as bool?,
+    replaceBreaks: json['replace_breaks'] as bool?,
     pluralFormat: json['plural_format'] as String?,
     placeholderFormat: json['placeholder_format'] as String?,
     includeTags:
@@ -28,6 +29,7 @@ Map<String, dynamic> _$_$_FilesDownloadRequestBodyToJson(
       'format': instance.format,
       'original_filenames': instance.originalFilenames,
       'all_platforms': instance.allPlatforms,
+      'replace_breaks': instance.replaceBreaks,
       'plural_format': instance.pluralFormat,
       'placeholder_format': instance.placeholderFormat,
       'include_tags': instance.includeTags?.toList(),

@@ -27,6 +27,8 @@ class _$FilesDownloadRequestBodyTearOff {
           bool? originalFilenames = false,
       @JsonKey(name: "all_platforms")
           bool? allPlatforms = true,
+      @JsonKey(name: "replace_breaks")
+          bool? replaceBreaks = true,
       @JsonKey(name: "plural_format")
           String? pluralFormat = "icu",
       @JsonKey(name: "placeholder_format")
@@ -43,6 +45,7 @@ class _$FilesDownloadRequestBodyTearOff {
       format: format,
       originalFilenames: originalFilenames,
       allPlatforms: allPlatforms,
+      replaceBreaks: replaceBreaks,
       pluralFormat: pluralFormat,
       placeholderFormat: placeholderFormat,
       includeTags: includeTags,
@@ -67,6 +70,8 @@ mixin _$FilesDownloadRequestBody {
   bool? get originalFilenames => throw _privateConstructorUsedError;
   @JsonKey(name: "all_platforms")
   bool? get allPlatforms => throw _privateConstructorUsedError;
+  @JsonKey(name: "replace_breaks")
+  bool? get replaceBreaks => throw _privateConstructorUsedError;
   @JsonKey(name: "plural_format")
   String? get pluralFormat => throw _privateConstructorUsedError;
   @JsonKey(name: "placeholder_format")
@@ -95,6 +100,7 @@ abstract class $FilesDownloadRequestBodyCopyWith<$Res> {
       {String format,
       @JsonKey(name: "original_filenames") bool? originalFilenames,
       @JsonKey(name: "all_platforms") bool? allPlatforms,
+      @JsonKey(name: "replace_breaks") bool? replaceBreaks,
       @JsonKey(name: "plural_format") String? pluralFormat,
       @JsonKey(name: "placeholder_format") String? placeholderFormat,
       @JsonKey(name: "include_tags") Iterable<String>? includeTags,
@@ -117,6 +123,7 @@ class _$FilesDownloadRequestBodyCopyWithImpl<$Res>
     Object? format = freezed,
     Object? originalFilenames = freezed,
     Object? allPlatforms = freezed,
+    Object? replaceBreaks = freezed,
     Object? pluralFormat = freezed,
     Object? placeholderFormat = freezed,
     Object? includeTags = freezed,
@@ -136,6 +143,10 @@ class _$FilesDownloadRequestBodyCopyWithImpl<$Res>
       allPlatforms: allPlatforms == freezed
           ? _value.allPlatforms
           : allPlatforms // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      replaceBreaks: replaceBreaks == freezed
+          ? _value.replaceBreaks
+          : replaceBreaks // ignore: cast_nullable_to_non_nullable
               as bool?,
       pluralFormat: pluralFormat == freezed
           ? _value.pluralFormat
@@ -176,6 +187,7 @@ abstract class _$FilesDownloadRequestBodyCopyWith<$Res>
       {String format,
       @JsonKey(name: "original_filenames") bool? originalFilenames,
       @JsonKey(name: "all_platforms") bool? allPlatforms,
+      @JsonKey(name: "replace_breaks") bool? replaceBreaks,
       @JsonKey(name: "plural_format") String? pluralFormat,
       @JsonKey(name: "placeholder_format") String? placeholderFormat,
       @JsonKey(name: "include_tags") Iterable<String>? includeTags,
@@ -201,6 +213,7 @@ class __$FilesDownloadRequestBodyCopyWithImpl<$Res>
     Object? format = freezed,
     Object? originalFilenames = freezed,
     Object? allPlatforms = freezed,
+    Object? replaceBreaks = freezed,
     Object? pluralFormat = freezed,
     Object? placeholderFormat = freezed,
     Object? includeTags = freezed,
@@ -220,6 +233,10 @@ class __$FilesDownloadRequestBodyCopyWithImpl<$Res>
       allPlatforms: allPlatforms == freezed
           ? _value.allPlatforms
           : allPlatforms // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      replaceBreaks: replaceBreaks == freezed
+          ? _value.replaceBreaks
+          : replaceBreaks // ignore: cast_nullable_to_non_nullable
               as bool?,
       pluralFormat: pluralFormat == freezed
           ? _value.pluralFormat
@@ -258,6 +275,8 @@ class _$_FilesDownloadRequestBody implements _FilesDownloadRequestBody {
           this.originalFilenames = false,
       @JsonKey(name: "all_platforms")
           this.allPlatforms = true,
+      @JsonKey(name: "replace_breaks")
+          this.replaceBreaks = true,
       @JsonKey(name: "plural_format")
           this.pluralFormat = "icu",
       @JsonKey(name: "placeholder_format")
@@ -283,6 +302,9 @@ class _$_FilesDownloadRequestBody implements _FilesDownloadRequestBody {
   @JsonKey(name: "all_platforms")
   final bool? allPlatforms;
   @override
+  @JsonKey(name: "replace_breaks")
+  final bool? replaceBreaks;
+  @override
   @JsonKey(name: "plural_format")
   final String? pluralFormat;
   @override
@@ -303,7 +325,7 @@ class _$_FilesDownloadRequestBody implements _FilesDownloadRequestBody {
 
   @override
   String toString() {
-    return 'FilesDownloadRequestBody(format: $format, originalFilenames: $originalFilenames, allPlatforms: $allPlatforms, pluralFormat: $pluralFormat, placeholderFormat: $placeholderFormat, includeTags: $includeTags, includeComments: $includeComments, includeDescription: $includeDescription, jsonUnescapedSlashes: $jsonUnescapedSlashes)';
+    return 'FilesDownloadRequestBody(format: $format, originalFilenames: $originalFilenames, allPlatforms: $allPlatforms, replaceBreaks: $replaceBreaks, pluralFormat: $pluralFormat, placeholderFormat: $placeholderFormat, includeTags: $includeTags, includeComments: $includeComments, includeDescription: $includeDescription, jsonUnescapedSlashes: $jsonUnescapedSlashes)';
   }
 
   @override
@@ -318,6 +340,9 @@ class _$_FilesDownloadRequestBody implements _FilesDownloadRequestBody {
             (identical(other.allPlatforms, allPlatforms) ||
                 const DeepCollectionEquality()
                     .equals(other.allPlatforms, allPlatforms)) &&
+            (identical(other.replaceBreaks, replaceBreaks) ||
+                const DeepCollectionEquality()
+                    .equals(other.replaceBreaks, replaceBreaks)) &&
             (identical(other.pluralFormat, pluralFormat) ||
                 const DeepCollectionEquality()
                     .equals(other.pluralFormat, pluralFormat)) &&
@@ -344,6 +369,7 @@ class _$_FilesDownloadRequestBody implements _FilesDownloadRequestBody {
       const DeepCollectionEquality().hash(format) ^
       const DeepCollectionEquality().hash(originalFilenames) ^
       const DeepCollectionEquality().hash(allPlatforms) ^
+      const DeepCollectionEquality().hash(replaceBreaks) ^
       const DeepCollectionEquality().hash(pluralFormat) ^
       const DeepCollectionEquality().hash(placeholderFormat) ^
       const DeepCollectionEquality().hash(includeTags) ^
@@ -370,6 +396,8 @@ abstract class _FilesDownloadRequestBody implements FilesDownloadRequestBody {
           bool? originalFilenames,
       @JsonKey(name: "all_platforms")
           bool? allPlatforms,
+      @JsonKey(name: "replace_breaks")
+          bool? replaceBreaks,
       @JsonKey(name: "plural_format")
           String? pluralFormat,
       @JsonKey(name: "placeholder_format")
@@ -394,6 +422,9 @@ abstract class _FilesDownloadRequestBody implements FilesDownloadRequestBody {
   @override
   @JsonKey(name: "all_platforms")
   bool? get allPlatforms => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "replace_breaks")
+  bool? get replaceBreaks => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: "plural_format")
   String? get pluralFormat => throw _privateConstructorUsedError;

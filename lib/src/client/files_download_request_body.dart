@@ -11,6 +11,7 @@ class FilesDownloadRequestBody with _$FilesDownloadRequestBody {
     @Default(false)
         bool? originalFilenames,
     @JsonKey(name: "all_platforms") @Default(true) bool? allPlatforms,
+    @JsonKey(name: "replace_breaks") @Default(true) bool? replaceBreaks,
     @JsonKey(name: "plural_format") @Default("icu") String? pluralFormat,
     @JsonKey(name: "placeholder_format")
     @Default("icu")
