@@ -14,6 +14,7 @@ _$_FilesDownloadRequestBody _$_$_FilesDownloadRequestBodyFromJson(
     allPlatforms: json['all_platforms'] as bool?,
     replaceBreaks: json['replace_breaks'] as bool?,
     pluralFormat: json['plural_format'] as String?,
+    exportEmptyAs: json['export_empty_as'] as String?,
     placeholderFormat: json['placeholder_format'] as String?,
     includeTags:
         (json['include_tags'] as List<dynamic>?)?.map((e) => e as String),
@@ -31,6 +32,7 @@ Map<String, dynamic> _$_$_FilesDownloadRequestBodyToJson(
       'all_platforms': instance.allPlatforms,
       'replace_breaks': instance.replaceBreaks,
       'plural_format': instance.pluralFormat,
+      'export_empty_as': instance.exportEmptyAs,
       'placeholder_format': instance.placeholderFormat,
       'include_tags': instance.includeTags?.toList(),
       'include_comments': instance.includeComments,
