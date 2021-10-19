@@ -20,7 +20,7 @@ class LokaliseDownloader {
   Downloader downloader = Downloader();
 
   //Download map of locale and content file
-  Future<Map<String, dynamic>> download() async {
+  Future<Map<String, String>> download() async {
     final bundleUrl = await _fetchBundleUrl(
         apiToken: apiToken,
         projectId: projectId,
@@ -31,8 +31,8 @@ class LokaliseDownloader {
     return _extractToFiles(archive);
   }
 
-  Map<String, dynamic> _extractToFiles(Archive archive) {
-    Map<String, dynamic> files = new Map<String, dynamic>();
+  Map<String, String> _extractToFiles(Archive archive) {
+    Map<String, String> files = new Map<String, String>();
     archive
         .where((it) => it.isFile && path.extension(it.name) == ".json")
         .forEach((it) {
