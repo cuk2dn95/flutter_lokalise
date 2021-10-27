@@ -9,6 +9,8 @@ class LokaliseConfig with _$LokaliseConfig {
       {String? projectId,
       String? apiToken,
       Iterable<String>? includeTags,
+      Iterable<String>? filterData,
+      String? keyFile,
       String? output,
       String? branch}) = _LokaliseConfig;
 
@@ -18,6 +20,11 @@ class LokaliseConfig with _$LokaliseConfig {
     return LokaliseConfig(
       projectId: flutterLokalise?.getAsStringOrNull("project_id"),
       apiToken: flutterLokalise?.getAsStringOrNull("api_token"),
+      filterData: flutterLokalise
+          ?.getOrNull<YamlList>("filter_data")
+          ?.cast()
+          .map((it) => it.toString()),
+      keyFile: flutterLokalise?.getAsStringOrNull("key_file"),
       includeTags: flutterLokalise
           ?.getOrNull<YamlList>("include_tags")
           ?.cast()

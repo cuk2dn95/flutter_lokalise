@@ -10,11 +10,13 @@ class LokaliseDownloader {
       {required this.apiToken,
       required this.includeTags,
       required this.projectId,
+      this.filterData,
       this.baseUrl,
       this.branch});
   String apiToken;
   String projectId;
   Iterable<String> includeTags;
+  Iterable<String>? filterData;
   String? branch;
   String? baseUrl;
   Downloader downloader = Downloader();
@@ -25,6 +27,7 @@ class LokaliseDownloader {
         apiToken: apiToken,
         projectId: projectId,
         includeTags: includeTags,
+        filterData: filterData,
         branch: branch);
     final bundleData = await downloader.download(bundleUrl);
     final archive = ZipDecoder().decodeBytes(bundleData);
@@ -48,6 +51,7 @@ class LokaliseDownloader {
     required String apiToken,
     required String projectId,
     required Iterable<String> includeTags,
+    Iterable<String>? filterData,
     String? branch,
   }) async {
     final response = await LokaliseClient(
@@ -57,6 +61,7 @@ class LokaliseDownloader {
       projectId: projectId,
       branch: branch,
       includeTags: includeTags,
+      filterData: filterData
     );
     return response.typedBody.bundleUrl;
   }

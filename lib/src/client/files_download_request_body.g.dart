@@ -18,6 +18,8 @@ _$_FilesDownloadRequestBody _$_$_FilesDownloadRequestBodyFromJson(
     placeholderFormat: json['placeholder_format'] as String?,
     includeTags:
         (json['include_tags'] as List<dynamic>?)?.map((e) => e as String),
+    filterData:
+        (json['filter_data'] as List<dynamic>?)?.map((e) => e as String),
     includeComments: json['include_comments'] as bool?,
     includeDescription: json['include_description'] as bool?,
     jsonUnescapedSlashes: json['json_unescaped_slashes'] as bool?,
@@ -35,6 +37,7 @@ Map<String, dynamic> _$_$_FilesDownloadRequestBodyToJson(
       'export_empty_as': instance.exportEmptyAs,
       'placeholder_format': instance.placeholderFormat,
       'include_tags': instance.includeTags?.toList(),
+      'filter_data': instance.filterData?.toList(),
       'include_comments': instance.includeComments,
       'include_description': instance.includeDescription,
       'json_unescaped_slashes': instance.jsonUnescapedSlashes,

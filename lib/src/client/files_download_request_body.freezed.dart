@@ -37,6 +37,8 @@ class _$FilesDownloadRequestBodyTearOff {
           String? placeholderFormat = "icu",
       @JsonKey(name: "include_tags")
           Iterable<String>? includeTags,
+      @JsonKey(name: "filter_data")
+          Iterable<String>? filterData,
       @JsonKey(name: "include_comments")
           bool? includeComments = true,
       @JsonKey(name: "include_description")
@@ -52,6 +54,7 @@ class _$FilesDownloadRequestBodyTearOff {
       exportEmptyAs: exportEmptyAs,
       placeholderFormat: placeholderFormat,
       includeTags: includeTags,
+      filterData: filterData,
       includeComments: includeComments,
       includeDescription: includeDescription,
       jsonUnescapedSlashes: jsonUnescapedSlashes,
@@ -83,6 +86,8 @@ mixin _$FilesDownloadRequestBody {
   String? get placeholderFormat => throw _privateConstructorUsedError;
   @JsonKey(name: "include_tags")
   Iterable<String>? get includeTags => throw _privateConstructorUsedError;
+  @JsonKey(name: "filter_data")
+  Iterable<String>? get filterData => throw _privateConstructorUsedError;
   @JsonKey(name: "include_comments")
   bool? get includeComments => throw _privateConstructorUsedError;
   @JsonKey(name: "include_description")
@@ -110,6 +115,7 @@ abstract class $FilesDownloadRequestBodyCopyWith<$Res> {
       @JsonKey(name: "export_empty_as") String? exportEmptyAs,
       @JsonKey(name: "placeholder_format") String? placeholderFormat,
       @JsonKey(name: "include_tags") Iterable<String>? includeTags,
+      @JsonKey(name: "filter_data") Iterable<String>? filterData,
       @JsonKey(name: "include_comments") bool? includeComments,
       @JsonKey(name: "include_description") bool? includeDescription,
       @JsonKey(name: "json_unescaped_slashes") bool? jsonUnescapedSlashes});
@@ -134,6 +140,7 @@ class _$FilesDownloadRequestBodyCopyWithImpl<$Res>
     Object? exportEmptyAs = freezed,
     Object? placeholderFormat = freezed,
     Object? includeTags = freezed,
+    Object? filterData = freezed,
     Object? includeComments = freezed,
     Object? includeDescription = freezed,
     Object? jsonUnescapedSlashes = freezed,
@@ -171,6 +178,10 @@ class _$FilesDownloadRequestBodyCopyWithImpl<$Res>
           ? _value.includeTags
           : includeTags // ignore: cast_nullable_to_non_nullable
               as Iterable<String>?,
+      filterData: filterData == freezed
+          ? _value.filterData
+          : filterData // ignore: cast_nullable_to_non_nullable
+              as Iterable<String>?,
       includeComments: includeComments == freezed
           ? _value.includeComments
           : includeComments // ignore: cast_nullable_to_non_nullable
@@ -203,6 +214,7 @@ abstract class _$FilesDownloadRequestBodyCopyWith<$Res>
       @JsonKey(name: "export_empty_as") String? exportEmptyAs,
       @JsonKey(name: "placeholder_format") String? placeholderFormat,
       @JsonKey(name: "include_tags") Iterable<String>? includeTags,
+      @JsonKey(name: "filter_data") Iterable<String>? filterData,
       @JsonKey(name: "include_comments") bool? includeComments,
       @JsonKey(name: "include_description") bool? includeDescription,
       @JsonKey(name: "json_unescaped_slashes") bool? jsonUnescapedSlashes});
@@ -230,6 +242,7 @@ class __$FilesDownloadRequestBodyCopyWithImpl<$Res>
     Object? exportEmptyAs = freezed,
     Object? placeholderFormat = freezed,
     Object? includeTags = freezed,
+    Object? filterData = freezed,
     Object? includeComments = freezed,
     Object? includeDescription = freezed,
     Object? jsonUnescapedSlashes = freezed,
@@ -267,6 +280,10 @@ class __$FilesDownloadRequestBodyCopyWithImpl<$Res>
           ? _value.includeTags
           : includeTags // ignore: cast_nullable_to_non_nullable
               as Iterable<String>?,
+      filterData: filterData == freezed
+          ? _value.filterData
+          : filterData // ignore: cast_nullable_to_non_nullable
+              as Iterable<String>?,
       includeComments: includeComments == freezed
           ? _value.includeComments
           : includeComments // ignore: cast_nullable_to_non_nullable
@@ -302,6 +319,8 @@ class _$_FilesDownloadRequestBody implements _FilesDownloadRequestBody {
           this.placeholderFormat = "icu",
       @JsonKey(name: "include_tags")
           this.includeTags,
+      @JsonKey(name: "filter_data")
+          this.filterData,
       @JsonKey(name: "include_comments")
           this.includeComments = true,
       @JsonKey(name: "include_description")
@@ -336,6 +355,9 @@ class _$_FilesDownloadRequestBody implements _FilesDownloadRequestBody {
   @JsonKey(name: "include_tags")
   final Iterable<String>? includeTags;
   @override
+  @JsonKey(name: "filter_data")
+  final Iterable<String>? filterData;
+  @override
   @JsonKey(name: "include_comments")
   final bool? includeComments;
   @override
@@ -347,7 +369,7 @@ class _$_FilesDownloadRequestBody implements _FilesDownloadRequestBody {
 
   @override
   String toString() {
-    return 'FilesDownloadRequestBody(format: $format, originalFilenames: $originalFilenames, allPlatforms: $allPlatforms, replaceBreaks: $replaceBreaks, pluralFormat: $pluralFormat, exportEmptyAs: $exportEmptyAs, placeholderFormat: $placeholderFormat, includeTags: $includeTags, includeComments: $includeComments, includeDescription: $includeDescription, jsonUnescapedSlashes: $jsonUnescapedSlashes)';
+    return 'FilesDownloadRequestBody(format: $format, originalFilenames: $originalFilenames, allPlatforms: $allPlatforms, replaceBreaks: $replaceBreaks, pluralFormat: $pluralFormat, exportEmptyAs: $exportEmptyAs, placeholderFormat: $placeholderFormat, includeTags: $includeTags, filterData: $filterData, includeComments: $includeComments, includeDescription: $includeDescription, jsonUnescapedSlashes: $jsonUnescapedSlashes)';
   }
 
   @override
@@ -377,6 +399,9 @@ class _$_FilesDownloadRequestBody implements _FilesDownloadRequestBody {
             (identical(other.includeTags, includeTags) ||
                 const DeepCollectionEquality()
                     .equals(other.includeTags, includeTags)) &&
+            (identical(other.filterData, filterData) ||
+                const DeepCollectionEquality()
+                    .equals(other.filterData, filterData)) &&
             (identical(other.includeComments, includeComments) ||
                 const DeepCollectionEquality()
                     .equals(other.includeComments, includeComments)) &&
@@ -399,6 +424,7 @@ class _$_FilesDownloadRequestBody implements _FilesDownloadRequestBody {
       const DeepCollectionEquality().hash(exportEmptyAs) ^
       const DeepCollectionEquality().hash(placeholderFormat) ^
       const DeepCollectionEquality().hash(includeTags) ^
+      const DeepCollectionEquality().hash(filterData) ^
       const DeepCollectionEquality().hash(includeComments) ^
       const DeepCollectionEquality().hash(includeDescription) ^
       const DeepCollectionEquality().hash(jsonUnescapedSlashes);
@@ -432,6 +458,8 @@ abstract class _FilesDownloadRequestBody implements FilesDownloadRequestBody {
           String? placeholderFormat,
       @JsonKey(name: "include_tags")
           Iterable<String>? includeTags,
+      @JsonKey(name: "filter_data")
+          Iterable<String>? filterData,
       @JsonKey(name: "include_comments")
           bool? includeComments,
       @JsonKey(name: "include_description")
@@ -465,6 +493,9 @@ abstract class _FilesDownloadRequestBody implements FilesDownloadRequestBody {
   @override
   @JsonKey(name: "include_tags")
   Iterable<String>? get includeTags => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "filter_data")
+  Iterable<String>? get filterData => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: "include_comments")
   bool? get includeComments => throw _privateConstructorUsedError;

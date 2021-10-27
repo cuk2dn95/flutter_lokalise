@@ -25,13 +25,14 @@ class LokaliseClient {
   Future<LokaliseResponse<FilesDownloadResponseBody>> download({
     required String projectId,
     String? branch,
+    Iterable<String>? filterData,
     Iterable<String>? includeTags,
   }) async {
     final requestBody = FilesDownloadRequestBody(
-      format: "json",
-      includeTags: includeTags,
-      replaceBreaks: false,
-    );
+        format: "json",
+        includeTags: includeTags,
+        replaceBreaks: false,
+        filterData: filterData);
     final productPath = branch != null ? '$projectId:$branch' : projectId;
     final response = await _client.post(
         Uri.parse("$_baseUrl/projects/$productPath/files/download"),

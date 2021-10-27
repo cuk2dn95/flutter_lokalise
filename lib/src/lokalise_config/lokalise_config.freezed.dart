@@ -20,12 +20,16 @@ class _$LokaliseConfigTearOff {
       {String? projectId,
       String? apiToken,
       Iterable<String>? includeTags,
+      Iterable<String>? filterData,
+      String? keyFile,
       String? output,
       String? branch}) {
     return _LokaliseConfig(
       projectId: projectId,
       apiToken: apiToken,
       includeTags: includeTags,
+      filterData: filterData,
+      keyFile: keyFile,
       output: output,
       branch: branch,
     );
@@ -40,6 +44,8 @@ mixin _$LokaliseConfig {
   String? get projectId => throw _privateConstructorUsedError;
   String? get apiToken => throw _privateConstructorUsedError;
   Iterable<String>? get includeTags => throw _privateConstructorUsedError;
+  Iterable<String>? get filterData => throw _privateConstructorUsedError;
+  String? get keyFile => throw _privateConstructorUsedError;
   String? get output => throw _privateConstructorUsedError;
   String? get branch => throw _privateConstructorUsedError;
 
@@ -57,6 +63,8 @@ abstract class $LokaliseConfigCopyWith<$Res> {
       {String? projectId,
       String? apiToken,
       Iterable<String>? includeTags,
+      Iterable<String>? filterData,
+      String? keyFile,
       String? output,
       String? branch});
 }
@@ -75,6 +83,8 @@ class _$LokaliseConfigCopyWithImpl<$Res>
     Object? projectId = freezed,
     Object? apiToken = freezed,
     Object? includeTags = freezed,
+    Object? filterData = freezed,
+    Object? keyFile = freezed,
     Object? output = freezed,
     Object? branch = freezed,
   }) {
@@ -91,6 +101,14 @@ class _$LokaliseConfigCopyWithImpl<$Res>
           ? _value.includeTags
           : includeTags // ignore: cast_nullable_to_non_nullable
               as Iterable<String>?,
+      filterData: filterData == freezed
+          ? _value.filterData
+          : filterData // ignore: cast_nullable_to_non_nullable
+              as Iterable<String>?,
+      keyFile: keyFile == freezed
+          ? _value.keyFile
+          : keyFile // ignore: cast_nullable_to_non_nullable
+              as String?,
       output: output == freezed
           ? _value.output
           : output // ignore: cast_nullable_to_non_nullable
@@ -114,6 +132,8 @@ abstract class _$LokaliseConfigCopyWith<$Res>
       {String? projectId,
       String? apiToken,
       Iterable<String>? includeTags,
+      Iterable<String>? filterData,
+      String? keyFile,
       String? output,
       String? branch});
 }
@@ -134,6 +154,8 @@ class __$LokaliseConfigCopyWithImpl<$Res>
     Object? projectId = freezed,
     Object? apiToken = freezed,
     Object? includeTags = freezed,
+    Object? filterData = freezed,
+    Object? keyFile = freezed,
     Object? output = freezed,
     Object? branch = freezed,
   }) {
@@ -150,6 +172,14 @@ class __$LokaliseConfigCopyWithImpl<$Res>
           ? _value.includeTags
           : includeTags // ignore: cast_nullable_to_non_nullable
               as Iterable<String>?,
+      filterData: filterData == freezed
+          ? _value.filterData
+          : filterData // ignore: cast_nullable_to_non_nullable
+              as Iterable<String>?,
+      keyFile: keyFile == freezed
+          ? _value.keyFile
+          : keyFile // ignore: cast_nullable_to_non_nullable
+              as String?,
       output: output == freezed
           ? _value.output
           : output // ignore: cast_nullable_to_non_nullable
@@ -169,6 +199,8 @@ class _$_LokaliseConfig implements _LokaliseConfig {
       {this.projectId,
       this.apiToken,
       this.includeTags,
+      this.filterData,
+      this.keyFile,
       this.output,
       this.branch});
 
@@ -179,13 +211,17 @@ class _$_LokaliseConfig implements _LokaliseConfig {
   @override
   final Iterable<String>? includeTags;
   @override
+  final Iterable<String>? filterData;
+  @override
+  final String? keyFile;
+  @override
   final String? output;
   @override
   final String? branch;
 
   @override
   String toString() {
-    return 'LokaliseConfig(projectId: $projectId, apiToken: $apiToken, includeTags: $includeTags, output: $output, branch: $branch)';
+    return 'LokaliseConfig(projectId: $projectId, apiToken: $apiToken, includeTags: $includeTags, filterData: $filterData, keyFile: $keyFile, output: $output, branch: $branch)';
   }
 
   @override
@@ -201,6 +237,12 @@ class _$_LokaliseConfig implements _LokaliseConfig {
             (identical(other.includeTags, includeTags) ||
                 const DeepCollectionEquality()
                     .equals(other.includeTags, includeTags)) &&
+            (identical(other.filterData, filterData) ||
+                const DeepCollectionEquality()
+                    .equals(other.filterData, filterData)) &&
+            (identical(other.keyFile, keyFile) ||
+                const DeepCollectionEquality()
+                    .equals(other.keyFile, keyFile)) &&
             (identical(other.output, output) ||
                 const DeepCollectionEquality().equals(other.output, output)) &&
             (identical(other.branch, branch) ||
@@ -213,6 +255,8 @@ class _$_LokaliseConfig implements _LokaliseConfig {
       const DeepCollectionEquality().hash(projectId) ^
       const DeepCollectionEquality().hash(apiToken) ^
       const DeepCollectionEquality().hash(includeTags) ^
+      const DeepCollectionEquality().hash(filterData) ^
+      const DeepCollectionEquality().hash(keyFile) ^
       const DeepCollectionEquality().hash(output) ^
       const DeepCollectionEquality().hash(branch);
 
@@ -227,6 +271,8 @@ abstract class _LokaliseConfig implements LokaliseConfig {
       {String? projectId,
       String? apiToken,
       Iterable<String>? includeTags,
+      Iterable<String>? filterData,
+      String? keyFile,
       String? output,
       String? branch}) = _$_LokaliseConfig;
 
@@ -236,6 +282,10 @@ abstract class _LokaliseConfig implements LokaliseConfig {
   String? get apiToken => throw _privateConstructorUsedError;
   @override
   Iterable<String>? get includeTags => throw _privateConstructorUsedError;
+  @override
+  Iterable<String>? get filterData => throw _privateConstructorUsedError;
+  @override
+  String? get keyFile => throw _privateConstructorUsedError;
   @override
   String? get output => throw _privateConstructorUsedError;
   @override

@@ -18,6 +18,7 @@ class FilesDownloadRequestBody with _$FilesDownloadRequestBody {
     @Default("icu")
         String? placeholderFormat,
     @JsonKey(name: "include_tags") Iterable<String>? includeTags,
+    @JsonKey(name: "filter_data") Iterable<String>? filterData,
     @JsonKey(name: "include_comments") @Default(true) bool? includeComments,
     @JsonKey(name: "include_description")
     @Default(true)

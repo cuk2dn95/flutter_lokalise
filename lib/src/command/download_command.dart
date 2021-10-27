@@ -35,17 +35,16 @@ class DownloadCommand extends FlutterLokaliseCommand<Null> {
   FutureOr<Null> run() async {
     final config = commandRunner.lokaliseConfig;
     final flutterLokaliseArgResults = commandRunner.flutterLokaliseArgResults;
-    final downloadArgResults = _DownloadArgResults.fromArgResults(
-      argResults!,
-      fallbackOutput: config.output,
-      fallbackIncludeTags: config.includeTags,
-    );
+    final downloadArgResults = _DownloadArgResults.fromArgResults(argResults!,
+        fallbackOutput: config.output,
+        fallbackIncludeTags: config.includeTags,
+        fallbackFilterData: config.filterData);
 
     final bundleUrl = await _fetchBundleUrl(
-      apiToken: flutterLokaliseArgResults!.apiToken!,
-      projectId: flutterLokaliseArgResults.projectId!,
-      includeTags: downloadArgResults.includeTags!,
-    );
+        apiToken: flutterLokaliseArgResults!.apiToken!,
+        projectId: flutterLokaliseArgResults.projectId!,
+        includeTags: downloadArgResults.includeTags!,
+        filterData: downloadArgResults.filterData);
 
     final bundleData = await _downloader.download(bundleUrl);
     final archive = ZipDecoder().decodeBytes(bundleData);
@@ -56,14 +55,13 @@ class DownloadCommand extends FlutterLokaliseCommand<Null> {
     required String apiToken,
     required String projectId,
     required Iterable<String> includeTags,
+    Iterable<String>? filterData,
   }) async {
     final response = await LokaliseClient(
       apiToken: apiToken,
       baseUrl: _baseUrl,
     ).download(
-      projectId: projectId,
-      includeTags: includeTags,
-    );
+        projectId: projectId, includeTags: includeTags, filterData: filterData);
     _logger.fine(response.typedBody);
     return response.typedBody.bundleUrl;
   }
@@ -75,11 +73,10 @@ class DownloadCommand extends FlutterLokaliseCommand<Null> {
       final data = it.content as List<int>;
       final jsonString = Utf8Decoder().convert(data);
       final locale = path.basenameWithoutExtension(it.name);
-   
+
       File("$output/$locale.json")
         ..createSync(recursive: true)
-        ..writeAsStringSync(
-            _unescape(jsonString));
+        ..writeAsStringSync(_unescape(jsonString));
     });
   }
 
@@ -91,12 +88,15 @@ class DownloadCommand extends FlutterLokaliseCommand<Null> {
 class _DownloadArgResults {
   final String? output;
   final Iterable<String>? includeTags;
+  final Iterable<String>? filterData;
 
   _DownloadArgResults.fromArgResults(
     ArgResults results, {
     String? fallbackOutput,
     Iterable<String>? fallbackIncludeTags,
+    Iterable<String>? fallbackFilterData,
   })  : output = results.get("output", orElse: fallbackOutput),
+        filterData = results.get("filter-data", orElse: fallbackFilterData),
         includeTags = results.get("include-tags", orElse: fallbackIncludeTags);
 
   static void addOptions(ArgParser argParser) {
@@ -110,6 +110,11 @@ class _DownloadArgResults {
       "include-tags",
       abbr: "t",
       help: "tags to filter the keys by",
+    );
+    argParser.addMultiOption(
+      "filter-data",
+      abbr: "f",
+      help: "data to filter the keys by",
     );
   }
 }
